@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -68,7 +69,7 @@ namespace Functions.Webhooks
                         switch (message.Operation)
                         {
                             case "change_workflow_step":
-                                var translationLanguage = language.Substring(0, 2);
+                                var translationLanguage = new CultureInfo(language).TwoLetterISOLanguageName;
 
                                 foreach (var item in data.Items)
                                 {
